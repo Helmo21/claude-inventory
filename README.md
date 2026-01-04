@@ -11,8 +11,10 @@ A complete Claude Code plugin with **169 agents**, **140 skills**, and **37 work
 /plugin marketplace add Helmo21/claude-inventory
 
 # Install the plugin
-/plugin install claude-inventory@antoine-inventory
+/plugin install claude-inventory@claude-inventory
 ```
+
+Restart Claude Code to load the plugin.
 
 ### Manual Install
 
@@ -21,10 +23,10 @@ Add to your `~/.claude/settings.json`:
 ```json
 {
   "enabledPlugins": {
-    "claude-inventory@antoine-inventory": true
+    "claude-inventory@claude-inventory": true
   },
   "extraKnownMarketplaces": {
-    "antoine-inventory": {
+    "claude-inventory": {
       "source": {
         "source": "github",
         "repo": "Helmo21/claude-inventory"
@@ -42,7 +44,7 @@ Then restart Claude Code.
 /plugin list
 ```
 
-You should see `claude-inventory@antoine-inventory` in the list.
+You should see `claude-inventory@claude-inventory` in the list.
 
 ## Usage
 

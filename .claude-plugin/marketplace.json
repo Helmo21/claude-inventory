@@ -1,0 +1,10 @@
+{
+  "name": "claude-inventory",
+  "description": "Claude Code Inventory - A complete collection of agents, skills, and workflows",
+  "plugins": [
+    {
+      "name": "claude-inventory",
+      "path": "."
+    }
+  ]
+}
