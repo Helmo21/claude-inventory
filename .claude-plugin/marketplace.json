@@ -1,10 +1,15 @@
 {
   "name": "claude-inventory",
-  "description": "Claude Code Inventory - A complete collection of agents, skills, and workflows",
+  "displayName": "Claude Code Inventory",
+  "version": "1.0.0",
+  "description": "A complete collection of 169 agents, 140 skills, and 37 workflows for Claude Code",
+  "owner": {
+    "name": "Helmo21"
+  },
   "plugins": [
     {
       "name": "claude-inventory",
-      "path": "."
+      "source": "."
     }
   ]
 }
