@@ -1,0 +1,10 @@
+{
+  "name": "claude-inventory",
+  "description": "Complete collection of 169 agents, 140 skills, and 37 workflows for Claude Code development",
+  "version": "1.0.0",
+  "author": {
+    "name": "antoine"
+  },
+  "repository": "https://github.com/antoine/claude-inventory",
+  "license": "MIT"
+}
