@@ -9,7 +9,9 @@
   "plugins": [
     {
       "name": "claude-inventory",
-      "source": "."
+      "source": "./plugins/claude-inventory",
+      "description": "Complete collection of 169 agents, 140 skills, and 37 workflows for Claude Code development",
+      "version": "1.0.0"
     }
   ]
 }
