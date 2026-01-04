@@ -1,23 +1,41 @@
 ---
 name: llm-saas-backend
-description: Planning, Architecture & Security workflow for LangChain/LLM SaaS with OpenRouter and Supabase
+description: LLM Features Backend workflow with OpenRouter, Supabase pgvector, LangChain & LangGraph
 ---
 
-# LLM SaaS Backend - Planning & Design Workflow
+# LLM Features Backend - Planning & Design Workflow
 
-A focused workflow for planning, architecting, and securing a LangChain/LLM SaaS backend.
+Build the AI/LLM features backend to integrate with your existing SaaS template.
 
 **Stack:**
 - **LLM Provider:** OpenRouter (multi-model access)
 - **Vector Store:** Supabase (pgvector)
-- **Framework:** LangChain / LangGraph
+- **Framework:** LangChain + LangGraph
 
 ```
-Phase 1: Discovery & Planning ──► Phase 2: Architecture ──► Phase 3: Security Design
-                                                                      │
-                                                                      ▼
-                                                            Ready for Implementation
+Phase 1: Discovery & Planning ──► Phase 2: Architecture ──► Phase 3: Security
+                                                                    │
+                                                                    ▼
+                                                          Ready for Implementation
 ```
+
+---
+
+## Skills Used in This Workflow
+
+| Skill | Phase | Purpose |
+|-------|-------|---------|
+| `brainstorming` | 1 | Requirements gathering |
+| `writing-plans` | 1 | Technical specification |
+| `langchain` | 2 | LangChain framework patterns |
+| `langchain-architecture` | 2 | Agents, chains, memory design |
+| `langgraph-docs` | 2 | LangGraph state machines |
+| `supabase-pgvector` | 2 | Vector store & RAG patterns |
+| `senior-prompt-engineer` | 2 | System prompts design |
+| `architecture-patterns` | 2 | Clean architecture |
+| `api-design-principles` | 2 | API design |
+| `security-api-security` | 3 | API hardening |
+| `security-input-validation` | 3 | LLM input validation |
 
 ---
 
@@ -29,123 +47,183 @@ Phase 1: Discovery & Planning ──► Phase 2: Architecture ──► Phase 3:
 
 **Context template:**
 ```
-Building a LangChain/LLM SaaS backend with:
+Building LLM features backend to integrate with existing SaaS:
 
 Stack:
-- LLM Provider: OpenRouter (access to Claude, GPT-4, Llama, Mistral, etc.)
-- Vector Store: Supabase with pgvector extension
-- Framework: LangChain with LCEL / LangGraph for complex flows
+- LLM Provider: OpenRouter (Claude, GPT-4, Llama, Mistral)
+- Vector Store: Supabase with pgvector
+- Framework: LangChain + LangGraph
 
 Core Features:
-- Multi-tenant API with organization/user hierarchy
-- RAG pipeline with Supabase vector search
-- Conversation memory stored in Supabase
-- Streaming responses via SSE
-- Model routing (choose model per request via OpenRouter)
-- Usage tracking and cost attribution per tenant
-- Rate limiting per API key
+- RAG pipeline with document ingestion
+- Conversation management with memory
+- Streaming responses (SSE)
+- Model routing via OpenRouter
+- Usage tracking per tenant
+- Rate limiting
 
-OpenRouter Specific:
-- Model fallback chains (if Claude fails, try GPT-4)
-- Cost tracking per model per tenant
-- Model availability monitoring
-- Prompt caching for supported models
+OpenRouter Features:
+- Multi-model support with unified API
+- Model fallback chains
+- Cost tracking per model
+- Prompt caching
 
-Supabase Specific:
-- Row Level Security (RLS) for tenant isolation
-- pgvector for embeddings storage
-- Real-time subscriptions for conversation updates
-- Edge Functions for webhooks
-- Supabase Auth integration option
+Supabase Features:
+- pgvector for embeddings
+- Conversations & messages storage
+- Usage logs
+- Real-time subscriptions for streaming UX
+
+Integration Points:
+- Will merge with existing SaaS template
+- Auth handled by existing system
+- Tenant isolation via tenant_id
 ```
-
-**Output:** Validated requirements document
-
----
 
 ### 1.2 Technical Specification
 
 **Invoke skill:** `writing-plans`
 
 **Deliverables:**
-- [ ] System context diagram
-- [ ] Core user journeys
-- [ ] API endpoint inventory
-- [ ] Data entities list
-- [ ] Integration points (OpenRouter, Supabase)
-- [ ] Non-functional requirements (latency, scale, security)
+- [ ] LLM service boundaries
+- [ ] API endpoints for AI features
+- [ ] Data flow diagrams
+- [ ] Integration points with existing SaaS
 
 ---
 
 ## Phase 2: Architecture Analysis
 
-### 2.1 Parallel Architecture Analysis
+### 2.1 LangChain & LangGraph Skills (Sequential)
+
+**Invoke these skills to understand the frameworks:**
+
+1. **`langchain`** - Core framework understanding:
+   - Chains and LCEL composition
+   - Agent patterns (ReAct, tool calling)
+   - Memory management
+   - Vector store integration
+
+2. **`langchain-architecture`** - Architecture patterns:
+   - Service layer design
+   - Chain composition patterns
+   - Error handling in chains
+   - Streaming patterns
+
+3. **`langgraph-docs`** - For complex workflows:
+   - State machines for multi-step flows
+   - Conditional routing
+   - Human-in-the-loop patterns
+   - Persistence and checkpointing
+
+### 2.2 Supabase & Prompt Design (Sequential)
+
+4. **`supabase-pgvector`** - Vector store setup:
+   - Schema for documents, chunks, embeddings
+   - Similarity search functions
+   - Hybrid search (vector + full-text)
+   - LangChain integration code
+
+5. **`senior-prompt-engineer`** - Prompt design:
+   - System prompt templates
+   - RAG prompt patterns
+   - Few-shot examples
+   - Output formatting
+
+### 2.3 Parallel Architecture Analysis
 
 **Run these 4 agents IN PARALLEL:**
 
 ```
-"Run these agents in parallel for LLM SaaS architecture:
+"Run these agents in parallel for LLM features backend:
 
-1. backend-architect: Design multi-tenant architecture for LLM SaaS with:
-   - Service boundaries (API, LLM Service, Vector Service)
-   - Communication patterns (sync for queries, async for ingestion)
-   - Multi-tenant isolation strategy
-   - Caching layers for responses and embeddings
+1. backend-architect: Design LLM service architecture:
+   - Service boundaries (API, LLM Service, RAG Service)
+   - Integration patterns with existing SaaS
+   - Async processing for document ingestion
+   - Caching strategy for responses
 
-2. langchain-specialist: Design LangChain/LangGraph patterns for:
-   - RAG pipeline with Supabase pgvector retriever
-   - OpenRouter integration with model routing
-   - Conversation memory with Supabase backend
-   - Streaming chain composition with LCEL
+2. langchain-specialist: Design LangChain implementation:
+   - RAG pipeline with Supabase retriever
+   - OpenRouter LLM wrapper with model routing
+   - Conversation memory using Supabase
+   - Streaming chain with LCEL
    - Fallback chains for model failures
 
-3. postgresql-specialist: Design Supabase schema for:
-   - Multi-tenant tables (orgs, users, api_keys)
-   - Conversations and messages with metadata
-   - pgvector embeddings table with tenant isolation
-   - Usage tracking (tokens, costs per model)
-   - RLS policies for tenant data isolation
+3. postgresql-specialist: Design Supabase schema:
+   - documents and document_chunks tables
+   - conversations and messages tables
+   - usage_logs for cost tracking
+   - pgvector indexes (IVFFlat vs HNSW)
+   - Similarity search functions
 
-4. redis-specialist: Design caching and rate limiting:
-   - Response caching strategy (by prompt hash)
+4. redis-specialist: Design caching layer:
+   - Response cache by prompt hash
    - Embedding cache for frequent queries
-   - Rate limiter per API key (sliding window)
-   - Session/conversation state caching
-   - OpenRouter API key rotation/pooling"
+   - Rate limiter per tenant/API key
+   - Conversation context cache"
 ```
 
-**Output:** 4 architecture documents to merge
-
----
-
-### 2.2 Architecture Patterns (Sequential)
+### 2.4 Architecture Patterns (Sequential)
 
 **Invoke skills in order:**
 
-1. **`architecture-patterns`** - Apply to our context:
-   - Clean Architecture for service layer
-   - Repository pattern for Supabase access
+1. **`architecture-patterns`** - Apply patterns:
+   - Repository pattern for Supabase
    - Strategy pattern for model selection
+   - Chain of Responsibility for fallbacks
 
-2. **`api-design-principles`** - Design API with:
-   - REST endpoints for CRUD operations
-   - SSE endpoint for streaming completions
-   - Webhook endpoints for async callbacks
+2. **`api-design-principles`** - API design:
+   - REST endpoints for CRUD
+   - SSE endpoint for streaming
+   - Webhook endpoints for async
    - OpenAPI specification
 
 ---
 
-### 2.3 Architecture Decisions Document
+## Phase 2 Outputs
 
-**Create ADR (Architecture Decision Records) for:**
+### Data Models (from `supabase-pgvector`)
 
-| Decision | Options Considered | Choice | Rationale |
-|----------|-------------------|--------|-----------|
-| LLM Provider | OpenAI direct, Anthropic direct, OpenRouter | **OpenRouter** | Multi-model access, unified API, fallbacks |
-| Vector Store | Pinecone, Qdrant, Supabase pgvector | **Supabase** | Integrated auth, RLS, real-time, cost |
-| Embedding Model | OpenAI ada-002, Cohere, local | TBD | Cost vs quality analysis |
-| Auth Strategy | JWT custom, Supabase Auth, Auth0 | TBD | Based on requirements |
-| Caching | Redis, Supabase cache, in-memory | TBD | Based on scale needs |
+```
+documents ─────► document_chunks (with embeddings)
+                        │
+conversations ──► messages (with token counts)
+                        │
+                 usage_logs (cost tracking)
+```
+
+### LangChain Components (from `langchain-architecture`)
+
+```
+OpenRouter LLM
+      │
+      ▼
+┌─────────────────────────────────────┐
+│           RAG Chain (LCEL)          │
+│  ┌─────────┐  ┌─────────┐  ┌─────┐  │
+│  │Retriever│─►│ Prompt  │─►│ LLM │  │
+│  │Supabase │  │Template │  │     │  │
+│  └─────────┘  └─────────┘  └─────┘  │
+└─────────────────────────────────────┘
+      │
+      ▼
+Streaming Response (SSE)
+```
+
+### LangGraph Workflows (from `langgraph-docs`)
+
+```
+┌────────────┐     ┌────────────┐     ┌────────────┐
+│   START    │────►│  Retrieve  │────►│  Generate  │
+└────────────┘     └────────────┘     └────────────┘
+                         │                   │
+                         ▼                   ▼
+                   ┌────────────┐     ┌────────────┐
+                   │  No Docs?  │     │   Stream   │
+                   │  Fallback  │     │  Response  │
+                   └────────────┘     └────────────┘
+```
 
 ---
 
@@ -153,134 +231,85 @@ Supabase Specific:
 
 ### 3.1 Parallel Security Analysis
 
-**Run these 3 agents IN PARALLEL:**
+**Run these 2 agents IN PARALLEL:**
 
 ```
-"Run security agents in parallel for LLM SaaS:
+"Run security agents in parallel for LLM features:
 
-1. security-auditor: Threat model for multi-tenant LLM API including:
-   - STRIDE analysis for each component
-   - Attack surface mapping (API, OpenRouter, Supabase)
-   - Data flow security analysis
-   - Trust boundary identification
+1. security-auditor: Threat model for LLM API:
+   - Prompt injection attack vectors
+   - Data leakage via model responses
+   - Cost attacks (token exhaustion)
+   - RAG poisoning via document upload
 
-2. security-owasp-vulnerabilities: Analyze LLM-specific risks:
-   - Prompt injection vectors and mitigations
-   - Data leakage between tenants
-   - API key exposure risks
-   - Rate limiting bypass attempts
-   - SSRF via document ingestion
-
-3. soc2-specialist: Compliance requirements for:
-   - Data encryption (transit and rest)
-   - Access control and audit logging
-   - Incident response procedures
-   - Data retention policies
-   - Vendor security (OpenRouter, Supabase)"
+2. security-owasp-vulnerabilities: LLM-specific OWASP:
+   - LLM01: Prompt Injection
+   - LLM02: Insecure Output Handling
+   - LLM06: Sensitive Information Disclosure
+   - LLM09: Overreliance on LLM"
 ```
-
-**Output:** Security assessment document
-
----
 
 ### 3.2 Security Skills (Sequential)
 
 **Invoke skills in order:**
 
-1. **`security-authentication-jwt`** - API authentication:
-   - JWT structure for tenant/user context
-   - API key to JWT exchange flow
-   - Token refresh strategy
-   - Scope-based permissions
-
-2. **`security-api-security`** - API hardening:
+1. **`security-api-security`** - API hardening:
    - Input validation on all endpoints
-   - Output encoding for responses
-   - CORS configuration
+   - Output sanitization
    - Rate limiting headers
+   - Request size limits
 
-3. **`security-input-validation`** - LLM-specific validation:
+2. **`security-input-validation`** - LLM-specific:
    - Prompt length limits
    - Banned pattern detection
-   - Encoding normalization
    - File upload validation for RAG
-
-4. **`security-secrets-management`** - Secrets handling:
-   - OpenRouter API key storage
-   - Supabase service key protection
-   - Tenant API key encryption
-   - Key rotation procedures
-
----
+   - Encoding normalization
 
 ### 3.3 LLM Security Checklist
 
 #### Prompt Injection Protection
-- [ ] System prompt isolation (never expose to users)
-- [ ] User input sandboxing in prompts
+- [ ] System prompt isolation
+- [ ] User input sandboxing
 - [ ] Output validation before returning
-- [ ] Jailbreak attempt detection and logging
-
-#### Tenant Isolation
-- [ ] Supabase RLS policies tested
-- [ ] Vector store namespace per tenant
-- [ ] Conversation data encryption per tenant
-- [ ] API key scoping to tenant resources
+- [ ] Jailbreak detection logging
 
 #### Data Protection
-- [ ] PII detection in prompts (optional redaction)
+- [ ] Tenant isolation via tenant_id
+- [ ] PII detection in prompts (optional)
 - [ ] Sensitive data masking in logs
-- [ ] Conversation data retention limits
-- [ ] Right to deletion (GDPR) support
+- [ ] Document access control
+
+#### Cost Protection
+- [ ] Token limits per request
+- [ ] Daily/monthly quotas per tenant
+- [ ] Model access control
+- [ ] Cost alerts
 
 #### OpenRouter Specific
-- [ ] API key never exposed to frontend
-- [ ] Model access control per tenant
-- [ ] Cost alerts and limits per tenant
-- [ ] Fallback model security equivalence
-
-#### Supabase Specific
-- [ ] RLS enabled on all tenant tables
-- [ ] Service key only on backend
-- [ ] Anon key permissions minimized
-- [ ] Real-time subscriptions scoped by RLS
-
----
-
-## Phase 3 Output: Security Controls Matrix
-
-| Threat | Control | Implementation |
-|--------|---------|----------------|
-| Prompt Injection | Input validation + output filtering | Middleware + LangChain callback |
-| Tenant Data Leak | RLS + namespace isolation | Supabase policies + vector metadata |
-| API Key Theft | Encryption + rotation | Vault/KMS + auto-rotation |
-| Cost Attack | Rate limiting + quotas | Redis limiter + usage tracking |
-| Model Abuse | Content filtering | Pre/post chain validators |
+- [ ] API key server-side only
+- [ ] Model allowlist per tenant
+- [ ] Fallback model security parity
 
 ---
 
 ## Workflow Completion Checklist
 
-At the end of these 3 phases, you should have:
-
 ### Phase 1 Outputs
-- [ ] Requirements document (validated)
+- [ ] Requirements document
 - [ ] Technical specification
-- [ ] User journey maps
+- [ ] Integration plan with existing SaaS
 
 ### Phase 2 Outputs
-- [ ] System architecture diagram
-- [ ] Service boundary definitions
-- [ ] Database schema design (Supabase)
+- [ ] LangChain architecture design
+- [ ] LangGraph workflow diagrams
+- [ ] Supabase schema (SQL ready)
 - [ ] API specification (OpenAPI)
-- [ ] Caching strategy document
-- [ ] Architecture Decision Records
+- [ ] Prompt templates
+- [ ] Caching strategy
 
 ### Phase 3 Outputs
-- [ ] Threat model (STRIDE)
-- [ ] Security controls matrix
-- [ ] Authentication design
-- [ ] Compliance checklist
+- [ ] Threat model
+- [ ] Security controls list
 - [ ] LLM security checklist (completed)
 
 ---
@@ -288,37 +317,41 @@ At the end of these 3 phases, you should have:
 ## Quick Start Commands
 
 ```bash
-# Start full workflow
+# Start workflow
 /claude-inventory:llm-saas
 
-# Or run phases individually:
-
-# Phase 1
-/claude-inventory:brainstorming "LLM SaaS with OpenRouter and Supabase"
+# Phase 1 - Planning
+/claude-inventory:brainstorming "LLM features backend with OpenRouter + Supabase"
 /claude-inventory:writing-plans
 
-# Phase 2 (parallel)
-"Run backend-architect, langchain-specialist, postgresql-specialist, redis-specialist in parallel for OpenRouter + Supabase architecture"
+# Phase 2 - Learn the stack (sequential)
+/claude-inventory:langchain
+/claude-inventory:langchain-architecture
+/claude-inventory:langgraph-docs
+/claude-inventory:supabase-pgvector
+/claude-inventory:senior-prompt-engineer
 
-# Phase 2 (sequential)
+# Phase 2 - Architecture (parallel agents)
+"Run backend-architect, langchain-specialist, postgresql-specialist, redis-specialist in parallel"
+
+# Phase 2 - Patterns (sequential)
 /claude-inventory:architecture-patterns
 /claude-inventory:api-design-principles
 
-# Phase 3 (parallel)
-"Run security-auditor, security-owasp-vulnerabilities, soc2-specialist in parallel"
+# Phase 3 - Security (parallel agents)
+"Run security-auditor and security-owasp-vulnerabilities in parallel"
 
-# Phase 3 (sequential)
-/claude-inventory:security-authentication-jwt
+# Phase 3 - Security skills (sequential)
 /claude-inventory:security-api-security
 /claude-inventory:security-input-validation
-/claude-inventory:security-secrets-management
 ```
 
 ---
 
-## Next Steps (Separate Workflows)
+## Next Steps
 
-After completing this workflow, continue with:
-- **Implementation Workflow** - TDD, coding, integration
-- **Testing Workflow** - Unit, integration, load, security tests
-- **Deployment Workflow** - Infrastructure, CI/CD, monitoring
+After completing this workflow:
+1. **Merge** generated schemas/code with your SaaS template
+2. **Implementation workflow** - TDD, coding
+3. **Testing workflow** - Integration, load tests
+4. **Deployment workflow** - Infrastructure, monitoring
