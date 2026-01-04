@@ -1,40 +1,49 @@
 ---
 name: llm-saas
-description: Start the LLM SaaS Backend development workflow - a comprehensive guide for building secure, production-ready LangChain/LLM applications
+description: Planning, Architecture & Security workflow for LangChain/LLM SaaS with OpenRouter + Supabase
 ---
 
-# LLM SaaS Backend Workflow
+# LLM SaaS Backend - Planning & Design Workflow
 
-You are starting the **LLM SaaS Backend Development Workflow**.
+**Stack:** OpenRouter (LLM) + Supabase (pgvector) + LangChain
 
-## First, read the full workflow:
+## Read the workflow first:
 
-Read the workflow skill at: `plugins/claude-inventory/workflows/llm-saas/SKILL.md`
+Load: `plugins/claude-inventory/workflows/llm-saas/SKILL.md`
 
-## Then ask the user:
+## Workflow Phases
 
-1. **What phase would you like to start with?**
-   - Phase 1: Discovery & Planning (brainstorming, requirements)
-   - Phase 2: Architecture Analysis (parallel agents)
-   - Phase 3: Security Design (threat modeling)
-   - Phase 4: Implementation (TDD, coding)
-   - Phase 5: Testing & Review (parallel test agents)
-   - Phase 6: Deployment (infrastructure, CI/CD)
+| Phase | Type | Description |
+|-------|------|-------------|
+| **1. Discovery** | Sequential | Brainstorming → Technical Spec |
+| **2. Architecture** | Parallel + Sequential | 4 agents parallel → Skills sequential |
+| **3. Security** | Parallel + Sequential | 3 agents parallel → Skills sequential |
 
-2. **What's your project context?**
-   - Target cloud provider
-   - Expected scale
-   - LLM providers to support
-   - Compliance requirements
+## Ask the user:
+
+**Which phase do you want to start?**
+
+1. **Phase 1: Discovery & Planning**
+   - Brainstorm requirements for OpenRouter + Supabase stack
+   - Write technical specification
+
+2. **Phase 2: Architecture Analysis**
+   - Run 4 agents in parallel (backend, langchain, postgresql, redis)
+   - Apply architecture patterns and API design
+
+3. **Phase 3: Security Design**
+   - Run 3 security agents in parallel
+   - Apply security skills sequentially
+
+4. **Full workflow** - Run all 3 phases in order
 
 ## Execution Rules:
 
-1. **Always use TodoWrite** to track progress through phases
-2. **Parallel agents**: Launch with multiple Task tool calls in ONE message
-3. **Sequential skills**: Invoke one at a time, wait for completion
-4. **Security checkpoints**: Run security-auditor after each major phase
-5. **Documentation**: Generate artifacts at each phase completion
+1. Use **TodoWrite** to track progress through each phase
+2. **Parallel agents**: Launch with multiple Task calls in ONE message
+3. **Sequential skills**: Invoke one at a time
+4. Generate **output documents** at each phase completion
 
-## Start now:
+## Start:
 
-Ask the user which phase they want to begin with and gather their project context.
+Ask user which phase to begin, then follow the workflow exactly.
